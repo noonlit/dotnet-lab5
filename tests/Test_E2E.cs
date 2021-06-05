@@ -6,8 +6,8 @@ using OpenQA.Selenium.Chrome;
 
 namespace tests
 {
-	class Test_E2E
-	{
+    class Test_E2E
+    {
         private IWebDriver _driver;
         [SetUp]
         public void SetupDriver()
@@ -30,17 +30,18 @@ namespace tests
             {
                 _driver.FindElement(By.XPath("//ion-list"));
                 Assert.Pass();
-            } catch (NoSuchElementException)
-			{
+            }
+            catch (NoSuchElementException)
+            {
                 Assert.Fail("Movies list not found!");
-			}
+            }
         }
 
         [Test]
         public void LoginFormExists()
         {
             _driver.Url = "http://localhost:4200/login";
-           _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             try
             {
